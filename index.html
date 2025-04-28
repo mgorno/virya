@@ -35,7 +35,7 @@
         }
 
         .logo-image {
-            max-height: 40px;
+            max-height: 50px;
             height: auto;
             width: auto;
         }
@@ -44,7 +44,7 @@
             display: none;
             flex-direction: column;
             cursor: pointer;
-            padding: 5px;
+            padding: 10px;
         }
 
         /* Aquí achicamos las líneas del menú hamburguesa */
@@ -115,7 +115,7 @@
 
     <header>
         <div class="logo-container">
-            <img src="IMG_9452.PNG" alt="Virya Yoga Studio" class="logo-image">
+            <img src="Images/IMG_9452.PNG" alt="Virya Yoga Studio" class="logo-image">
         </div>
 
         <div class="menu-toggle" onclick="toggleMenu()">
@@ -125,6 +125,7 @@
         </div>
     </header>
 
+    <!-- Menú de navegación que se muestra al activar el menú hamburguesa -->
     <nav>
         <a href="#">Inicio</a>
         <a href="#">Servicios</a>
@@ -139,6 +140,7 @@
     </footer>
 
     <script>
+        // Función para alternar la visibilidad del menú
         function toggleMenu() {
             const menu = document.querySelector('.menu-toggle');
             menu.classList.toggle('active');
