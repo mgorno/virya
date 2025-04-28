@@ -3,87 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi primer sitio móvil</title>
+    <title>Virya Yoga Studio</title>
     <style>
-        /* Estilos básicos */
         body {
             margin: 0;
             padding: 0;
+            background: #d0f0f0;
             font-family: Arial, sans-serif;
-            background: #f0f0f0;
-            color: #333;
+            height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
         }
 
         header {
-            background: #4CAF50;
-            color: white;
             width: 100%;
-            text-align: center;
-            padding: 1rem;
-            font-size: 1.5rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.7);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            box-sizing: border-box;
+            height: 60px;
         }
 
-        main {
-            padding: 1rem;
-            width: 100%;
-            max-width: 600px;
+        .logo-container {
+            text-align: left;
         }
 
-        .card {
-            background: white;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        .logo-image {
+            max-height: 40px;
+            height: auto;
+            width: auto;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* Aquí achicamos las líneas del menú hamburguesa */
+        .menu-toggle div {
+            width: 25px; /* Ancho reducido */
+            height: 2px; /* Altura reducida */
+            background-color: #333;
+            margin: 5px 0;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1rem;
+            display: inline-block;
+            padding: 10px 0;
         }
 
         footer {
-            background: #333;
+            background: rgba(0, 0, 0, 0.6);
             color: white;
             width: 100%;
             text-align: center;
-            padding: 0.5rem;
+            padding: 0.7rem;
             font-size: 0.9rem;
             position: fixed;
             bottom: 0;
+            backdrop-filter: blur(5px);
         }
 
-        /* Ajustes especiales para pantallas chicas */
-        @media (max-width: 600px) {
-            header {
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: rgba(255, 255, 255, 0.9);
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            nav a {
+                margin: 10px 0;
                 font-size: 1.2rem;
             }
-            main {
-                padding: 0.5rem;
+
+            .menu-toggle {
+                display: flex;
             }
-            .card {
-                padding: 0.8rem;
+
+            .menu-toggle.active + nav {
+                display: flex;
             }
         }
+
     </style>
 </head>
+
 <body>
+
     <header>
-        Virya
+        <div class="logo-container">
+            <img src="IMG_9452.PNG" alt="Virya Yoga Studio" class="logo-image">
+        </div>
+
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </header>
 
-    <main>
-        <div class="card">
-            <h2>Bienvenido</h2>
-            <p>Esta es una página de prueba adaptada a dispositivos móviles.</p>
-        </div>
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Servicios</a>
+        <a href="#">Sobre Nosotros</a>
+        <a href="#">Contacto</a>
+    </nav>
 
-        <div class="card">
-            <h2>¿Qué ofrecemos?</h2>
-            <p>Esto es una rpuebita reina</p>
-        </div>
-    </main>
+    <main></main>
 
     <footer>
-        © 2025 Mi Sitio Móvil
+        © 2025 Virya Yoga Studio
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu-toggle');
+            menu.classList.toggle('active');
+        }
+    </script>
+
 </body>
 </html>
