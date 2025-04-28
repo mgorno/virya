@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virya Yoga Studio</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         body {
             margin: 0;
@@ -16,18 +17,23 @@
         }
 
         header {
-            width: 100%;
+            width: 95%;
             position: fixed;
-            top: 0;
-            left: 0;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0.5rem 1rem;
             box-sizing: border-box;
             height: 60px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         }
 
         .logo-container {
@@ -38,6 +44,7 @@
             max-height: 50px;
             height: auto;
             width: auto;
+            margin-top: 5px;
         }
 
         .menu-toggle {
@@ -80,18 +87,23 @@
             backdrop-filter: blur(5px);
         }
 
+        /* Menú en dispositivos móviles */
         @media (max-width: 768px) {
             nav {
                 display: none;
-                width: 100%;
+                width: 35%; /* Cambiado: antes era 100% */
+                max-width: 400px; /* Opcional: limitar un ancho máximo */
                 position: absolute;
                 top: 60px;
-                left: 0;
+                right: 10px;
+                left: auto;
+                transform: none;
                 background-color: rgba(255, 255, 255, 0.9);
                 flex-direction: column;
                 align-items: center;
                 padding: 1rem;
                 box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                border-radius: 10px; /* Opcional: bordes redondeados */
             }
 
             nav a {
@@ -103,11 +115,11 @@
                 display: flex;
             }
 
+            /* Mostrar el menú cuando se activa el botón hamburguesa */
             .menu-toggle.active + nav {
                 display: flex;
             }
         }
-
     </style>
 </head>
 
@@ -123,27 +135,24 @@
             <div></div>
             <div></div>
         </div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Servicios</a>
+            <a href="#">Sobre Nosotros</a>
+            <a href="#">Contacto</a>
+        </nav>
     </header>
-
-    <!-- Menú de navegación que se muestra al activar el menú hamburguesa -->
-    <nav>
-        <a href="#">Inicio</a>
-        <a href="#">Servicios</a>
-        <a href="#">Sobre Nosotros</a>
-        <a href="#">Contacto</a>
-    </nav>
-
     <main></main>
 
     <footer>
         © 2025 Virya Yoga Studio
     </footer>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         // Función para alternar la visibilidad del menú
         function toggleMenu() {
             const menu = document.querySelector('.menu-toggle');
-            menu.classList.toggle('active');
+            menu.classList.toggle('active');  // Activa la clase 'active' que hará que el menú se muestre
         }
     </script>
 
