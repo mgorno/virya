@@ -98,37 +98,38 @@
         @media (max-width: 768px) {
             nav {
                 display: none;
-                width: 35%;
-                /* Cambiado: antes era 100% */
-                max-width: 400px;
-                /* Opcional: limitar un ancho máximo */
                 position: absolute;
                 top: 60px;
-                right: 10px;
-                left: auto;
-                transform: none;
-                background-color: rgba(255, 255, 255, 0.9);
+                /* altura del header */
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.4);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
                 flex-direction: column;
                 align-items: center;
-                padding: 1rem;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-                border-radius: 10px;
-                /* Opcional: bordes redondeados */
+                padding: 1rem 0;
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                border-bottom-left-radius: 20px;
+                border-bottom-right-radius: 20px;
             }
 
-            nav a {
-                margin: 10px 0;
-                font-size: 1.2rem;
-            }
+            /* Opcional: bordes redondeados */
+        }
 
-            .menu-toggle {
-                display: flex;
-            }
+        nav a {
+            margin: 10px 0;
+            font-size: 1.2rem;
+        }
 
-            /* Mostrar el menú cuando se activa el botón hamburguesa */
-            .menu-toggle.active+nav {
-                display: flex;
-            }
+        .menu-toggle {
+            display: flex;
+        }
+
+        /* Mostrar el menú cuando se activa el botón hamburguesa */
+        .menu-toggle.active+nav {
+            display: flex;
+        }
         }
 
         /* Fondo oscuro del popup */
