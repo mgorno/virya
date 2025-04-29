@@ -1,364 +1,342 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Virya Yoga Studio</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #d0f0f0;
-            font-family: Arial, sans-serif;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+      body {
+        margin: 0;
+        padding: 0;
+        background: #d0f0f0;
+        font-family: Arial, sans-serif;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
 
-        header {
-            width: 95%;
-            position: fixed;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.4);
-            /* Fondo más opaco */
-            backdrop-filter: blur(20px);
-            /* Más desenfoque para vidrio esmerilado */
-            -webkit-backdrop-filter: blur(20px);
-            /* Para compatibilidad */
-            border-radius: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.5rem 1rem;
-            box-sizing: border-box;
-            height: 60px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            /* Sombra suave */
-        }
+      header {
+        width: 95%;
+        position: fixed;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.4);
+        /* Fondo más opaco */
+        backdrop-filter: blur(20px);
+        /* Más desenfoque para vidrio esmerilado */
+        -webkit-backdrop-filter: blur(20px);
+        /* Para compatibilidad */
+        border-radius: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        box-sizing: border-box;
+        height: 60px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        /* Sombra suave */
+      }
 
-        .logo-container {
-            text-align: left;
-        }
+      .logo-container {
+        text-align: left;
+      }
 
-        .logo-image {
-            max-height: 50px;
-            height: auto;
-            width: auto;
-            margin-top: 10px;
-        }
+      .logo-image {
+        max-height: 50px;
+        height: auto;
+        width: auto;
+        margin-top: 10px;
+      }
 
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 10px;
-        }
+      /* NAV adentro del header */
+      header nav {
+        display: none;
+        flex-direction: column;
+        margin-top: 1rem;
+      }
 
-        /* Aquí achicamos las líneas del menú hamburguesa */
-        .menu-toggle div {
-            width: 25px;
-            /* Ancho reducido */
-            height: 2px;
-            /* Altura reducida */
-            background-color: #333;
-            margin: 5px 0;
-        }
+      /* Header expandido cuando tiene clase 'open' */
+      header.open {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        padding-bottom: 1rem;
+      }
 
-        nav {
-            display: flex;
-        }
+      header.open nav {
+        display: flex;
+        width: 100%;
+      }
 
+      nav a {
+        color: #333;
+        text-decoration: none;
+        margin: 0 1rem;
+        font-size: 1rem;
+        display: inline-block;
+        padding: 10px 0;
+      }
+
+      footer {
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+        width: 100%;
+        text-align: center;
+        padding: 0.7rem;
+        font-size: 0.9rem;
+        position: fixed;
+        bottom: 0;
+        backdrop-filter: blur(5px);
+      }
+
+      /* Menú en dispositivos móviles */
+      @media (max-width: 768px) {
         nav a {
-            color: #333;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-size: 1rem;
-            display: inline-block;
-            padding: 10px 0;
+          margin: 10px 0;
+          font-size: 3rem;
+        }
+        header nav {
+          display: none;
+          flex-direction: column;
+          margin-top: 1rem;
         }
 
-        footer {
-            background: rgba(0, 0, 0, 0.6);
-            color: white;
-            width: 100%;
-            text-align: center;
-            padding: 0.7rem;
-            font-size: 0.9rem;
-            position: fixed;
-            bottom: 0;
-            backdrop-filter: blur(5px);
+        /* Header expandido cuando tiene clase 'open' */
+        header.open {
+          flex-direction: column;
+          align-items: flex-start;
+          height: auto;
+          padding-bottom: 1rem;
         }
 
-        /* Menú en dispositivos móviles */
-        @media (max-width: 768px) {
-            nav {
-                display: none;
-                width: 35%;
-                /* Cambiado: antes era 100% */
-                max-width: 400px;
-                /* Opcional: limitar un ancho máximo */
-                position: absolute;
-                top: 60px;
-                right: 10px;
-                left: auto;
-                transform: none;
-                background-color: rgba(255, 255, 255, 0.9);
-                flex-direction: column;
-                align-items: center;
-                padding: 1rem;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-                border-radius: 10px;
-                /* Opcional: bordes redondeados */
-            }
-
-            nav a {
-                margin: 10px 0;
-                font-size: 1.2rem;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            /* Mostrar el menú cuando se activa el botón hamburguesa */
-            .menu-toggle.active+nav {
-                display: flex;
-            }
+        header.open nav {
+          display: flex;
+          width: 100%;
         }
+      }
 
-        /* Fondo oscuro del popup */
-        #popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            /* Fondo semitransparente */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
+      /* Fondo oscuro del popup */
+      #popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        /* Fondo semitransparente */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
 
-        /* Recuadro del popup */
-        #popup-content {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            position: relative;
-            max-width: 90%;
-            max-height: 90%;
-            overflow: auto;
-        }
+      /* Recuadro del popup */
+      #popup-content {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        position: relative;
+        max-width: 90%;
+        max-height: 90%;
+        overflow: auto;
+      }
 
-        /* Imagen dentro del popup */
-        #popup-content img {
-            max-width: 400px;
-            /* achica la imagen */
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
+      /* Imagen dentro del popup */
+      #popup-content img {
+        max-width: 400px;
+        /* achica la imagen */
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
 
-        /* Botón de cierre */
-        #popup-content button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: transparent;
-            border: none;
-            font-size: 32px;
-            color: white;
-            cursor: pointer;
-        }
+      /* Botón de cierre */
+      #popup-content button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: transparent;
+        border: none;
+        font-size: 32px;
+        color: white;
+        cursor: pointer;
+      }
 
-        .menu-btn {
-            position: relative;
-            width: 40px;
-            height: 30px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+      .menu-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 30px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000; /* para que esté sobre otros elementos */
+      }
 
-        .menu-btn__burger {
-            width: 35px;
-            height: 4px;
-            background: #333;
-            border-radius: 5px;
-            transition: all 0.3s ease-in-out;
-            position: relative;
-        }
+      .menu-btn__burger {
+        width: 35px;
+        height: 4px;
+        background: #333;
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+        position: relative;
+      }
 
-        .menu-btn__burger::before,
-        .menu-btn__burger::after {
-            content: '';
-            position: absolute;
-            width: 35px;
-            height: 4px;
-            background: #333;
-            border-radius: 5px;
-            transition: all 0.3s ease-in-out;
-        }
+      .menu-btn__burger::before,
+      .menu-btn__burger::after {
+        content: "";
+        position: absolute;
+        width: 35px;
+        height: 4px;
+        background: #333;
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+      }
 
-        .menu-btn__burger::before {
-            transform: translateY(-10px);
-        }
+      .menu-btn__burger::before {
+        transform: translateY(-10px);
+      }
 
-        .menu-btn__burger::after {
-            transform: translateY(10px);
-        }
+      .menu-btn__burger::after {
+        transform: translateY(10px);
+      }
 
-        /* Estado abierto */
-        .menu-btn.open .menu-btn__burger {
-            transform: rotate(45deg);
-        }
+      /* Estado abierto */
+      .menu-btn.open .menu-btn__burger {
+        transform: rotate(45deg);
+      }
 
-        .menu-btn.open .menu-btn__burger::before {
-            transform: rotate(90deg);
-            top: 0;
-        }
+      .menu-btn.open .menu-btn__burger::before {
+        transform: rotate(90deg);
+        top: 0;
+      }
 
-        .menu-btn.open .menu-btn__burger::after {
-            transform: rotate(90deg);
-            top: 0;
-        }
+      .menu-btn.open .menu-btn__burger::after {
+        transform: rotate(90deg);
+        top: 0;
+      }
 
-        /* Fondo oscuro del popup */
-        #popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
+      /* Fondo oscuro del popup */
+      #popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
 
-        /* Recuadro del popup con estilo WhatsApp */
-        #popup-content {
-            background-color: #fff;
-            padding: 15px;
-            border: 1px solid black;
-            /* borde negro fino */
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            max-width: 300px;
-            width: 90%;
-            position: relative;
-            text-align: center;
-        }
+      /* Recuadro del popup con estilo WhatsApp */
+      #popup-content {
+        background-color: #fff;
+        padding: 15px;
+        border: 1px solid black;
+        /* borde negro fino */
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        max-width: 300px;
+        width: 90%;
+        position: relative;
+        text-align: center;
+      }
 
-        /* Imagen dentro del popup */
-        #popup-content img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 6px;
-        }
+      /* Imagen dentro del popup */
+      #popup-content img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 6px;
+      }
 
-        /* Botón de cierre */
-        #popup-content button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            width: 40px;
-            height: 40px;
-            padding: 0;
-            background: rgba(0, 0, 0, 0.7);
-            border: none;
-            font-size: 28px;
-            font-weight: bold;
-            color: #fff;
-            cursor: pointer;
-            border-radius: 50%;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            line-height: 1;
-        }
+      /* Botón de cierre */
+      #popup-content button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        background: rgba(0, 0, 0, 0.7);
+        border: none;
+        font-size: 28px;
+        font-weight: bold;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 50%;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+      }
+      nav {
+        font-family: 'Cormorant Garamond', serif;
+        font-weight: 700; /* Negrita con estilo definido */
+        font-size: 18px;
+        letter-spacing: 1px;
+      }      
     </style>
-</head>
-<!-- Pop-up -->
-<!-- <div id="popup">
+  </head>
+
+  <div id="popup">
     <div id="popup-content">
-        <button onclick="cerrarPopup()">×</button>
-        <img src="Images/IMG_9139.PNG" alt="Horarios de Yoga" style="max-width: 100%; height: auto;">
+      <button id="close-popup">&times;</button>
+      <img
+        src="Images/IMG_9139.PNG"
+        alt="Horarios de Yoga"
+        style="max-width: 100%; height: auto"
+      />
     </div>
-</div> -->
-
-<!-- POPUP -->
-<div id="popup">
-    <div id="popup-content">
-        <button id="close-popup">&times;</button>
-        <img src="Images/IMG_9139.PNG" alt="Horarios de Yoga" style="max-width: 100%; height: auto;">
-    </div>
-</div>
-
-
-
-<body>
-
+  </div>
+  <body>
     <header>
-        <div class="logo-container">
-            <img src="Images/IMG_9452.PNG" alt="Virya Yoga Studio" class="logo-image">
-        </div>
-        <div class="menu-btn" id="menu-btn">
-            <div class="menu-btn__burger"></div>
-        </div>
-        <!-- <div class="menu-toggle" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div> -->
-        <nav>
-            <a href="#">Inicio</a>
-            <a href="#">Servicios</a>
-            <a href="#">Sobre Nosotros</a>
-            <a href="#">Contacto</a>
-        </nav>
+      <div class="logo-container">
+        <img
+          src="Images/IMG_9452.PNG"
+          alt="Virya Yoga Studio"
+          class="logo-image"
+        />
+      </div>
+      <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Nosotros</a>
+        <a href="#">Clases</a>
+        <a href="#">Contacto</a>
+      </nav>
+      <div class="menu-btn" id="menu-btn">
+        <div class="menu-btn__burger"></div>
+      </div>
     </header>
     <main></main>
-
-    <footer>
-        © 2025 Virya Yoga Studio
-    </footer>
+    <footer>© 2025 Virya Yoga Studio.</footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        // Función para alternar la visibilidad del menú
-        function toggleMenu() {
-            const menu = document.querySelector('.menu-toggle');
-            menu.classList.toggle('active');  // Activa la clase 'active' que hará que el menú se muestre
-        }
-        $(document).ready(function () {
-            $('#menu-btn').click(function () {
-                $(this).toggleClass('open');
-                $('nav').slideToggle(); // o .toggleClass('active') si preferís controlarlo por CSS
-            });
+      $(document).ready(function () {
+        $("#menu-btn").click(function () {
+          $(this).toggleClass("open");
+          $("header").toggleClass("open");
         });
-
-        $(document).ready(function () {
-            // Mostrar popup al cargar la página
-            $('#popup').fadeIn();
-
-            // Cerrar popup al hacer clic en el botón
-            $('#close-popup').click(function () {
-                $('#popup').fadeOut();
-            });
+      });
+      $(document).ready(function () {
+        $("#popup").fadeIn();
+        $("#close-popup").click(function () {
+          $("#popup").fadeOut();
         });
+      });
     </script>
-
-</body>
-
+  </body>
 </html>
