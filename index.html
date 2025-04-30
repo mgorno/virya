@@ -1,405 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Virya Yoga Studio</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      
-      header {
-        width: 95%;
-        position: fixed;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 1000;
-        background: rgba(255, 255, 255, 0.4);
-        /* Fondo más opaco */
-        backdrop-filter: blur(20px);
-        /* Más desenfoque para vidrio esmerilado */
-        -webkit-backdrop-filter: blur(20px);
-        /* Para compatibilidad */
-        border-radius: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.5rem 1rem;
-        box-sizing: border-box;
-        height: 60px;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        /* Sombra suave */
-      }
 
-      .logo-container {
-        text-align: left;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Virya Yoga Studio</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet" />
+ 
 
-      .logo-image {
-        max-height: 50px;
-        height: auto;
-        width: auto;
-        margin-top: 10px;
-      }
 
-      /* NAV adentro del header */
-      header nav {
-        display: none;
-        flex-direction: column;
-        margin-top: 1rem;
-      }
+</head>
 
-      /* Header expandido cuando tiene clase 'open' */
-      header.open {
-        flex-direction: column;
-        align-items: flex-start;
-        height: auto;
-        padding-bottom: 1rem;
-      }
-
-      header.open nav {
-        display: flex;
-        width: 100%;
-      }
-
-      nav a {
-        color: #333;
-        text-decoration: none;
-        margin: 0 1rem;
-        font-size: 1rem;
-        display: inline-block;
-        padding: 10px 0;
-      }
-
-      footer {
-        background: rgba(0, 0, 0, 0.6);
-        color: white;
-        width: 100%;
-        text-align: center;
-        padding: 0.7rem;
-        font-size: 0.9rem;
-        position: fixed;
-        bottom: 0;
-        backdrop-filter: blur(5px);
-      }
-
-      /* Menú en dispositivos móviles */
-      @media (max-width: 768px) {
-        nav a {
-          margin: 10px 0;
-          font-size: 1.2rem;
-        }
-        header nav {
-          display: none;
-          flex-direction: column;
-          margin-top: 1rem;
-        }
-
-        /* Header expandido cuando tiene clase 'open' */
-        header.open {
-          flex-direction: column;
-          align-items: flex-start;
-          height: auto;
-          padding-bottom: 1rem;
-        }
-
-        header.open nav {
-          display: flex;
-          width: 100%;
-        }
-      }
-
-      /* Fondo oscuro del popup */
-      #popup {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
-        /* Fondo semitransparente */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-      }
-
-      /* Recuadro del popup */
-      #popup-content {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 16px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-        position: relative;
-        max-width: 90%;
-        max-height: 90%;
-        overflow: auto;
-      }
-
-      /* Imagen dentro del popup */
-      #popup-content img {
-        max-width: 400px;
-        /* achica la imagen */
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-      }
-
-      /* Botón de cierre */
-      #popup-content button {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        background: transparent;
-        border: none;
-        font-size: 32px;
-        color: white;
-        cursor: pointer;
-      }
-
-      .menu-btn {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        width: 40px;
-        height: 30px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 1000; /* para que esté sobre otros elementos */
-      }
-
-      .menu-btn__burger {
-        width: 35px;
-        height: 4px;
-        background: #333;
-        border-radius: 5px;
-        transition: all 0.3s ease-in-out;
-        position: relative;
-      }
-
-      .menu-btn__burger::before,
-      .menu-btn__burger::after {
-        content: "";
-        position: absolute;
-        width: 35px;
-        height: 4px;
-        background: #333;
-        border-radius: 5px;
-        transition: all 0.3s ease-in-out;
-      }
-
-      .menu-btn__burger::before {
-        transform: translateY(-10px);
-      }
-
-      .menu-btn__burger::after {
-        transform: translateY(10px);
-      }
-
-      /* Estado abierto */
-      .menu-btn.open .menu-btn__burger {
-        transform: rotate(45deg);
-      }
-
-      .menu-btn.open .menu-btn__burger::before {
-        transform: rotate(90deg);
-        top: 0;
-      }
-
-      .menu-btn.open .menu-btn__burger::after {
-        transform: rotate(90deg);
-        top: 0;
-      }
-
-      /* Fondo oscuro del popup */
-      #popup {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.6);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-      }
-
-      /* Recuadro del popup con estilo WhatsApp */
-      #popup-content {
-        background-color: #fff;
-        padding: 15px;
-        border: 1px solid black;
-        /* borde negro fino */
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        max-width: 300px;
-        width: 90%;
-        position: relative;
-        text-align: center;
-      }
-
-      /* Imagen dentro del popup */
-      #popup-content img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 6px;
-      }
-
-      /* Botón de cierre */
-      #popup-content button {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        width: 40px;
-        height: 40px;
-        padding: 0;
-        background: rgba(0, 0, 0, 0.7);
-        border: none;
-        font-size: 28px;
-        font-weight: bold;
-        color: #fff;
-        cursor: pointer;
-        border-radius: 50%;
-        z-index: 10;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        line-height: 1;
-      }
-      nav {
-        font-family: 'Cormorant Garamond', serif;
-        font-weight: 700; 
-        font-size: 16px;
-        letter-spacing: 1px;
-      }   
-
-      
-        .image-transition {
-          position: fixed;
-          width: 100%;
-          height: 100%;
-          z-index: 10;
-          animation: hideOverlay 3s forwards 3s; /* Oculta después de la animación */
-        }
-      
-        .image-transition img {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          opacity: 0;
-          animation-fill-mode: forwards;
-        }
-      
-        .img1 {
-          animation: fadeInOut 3s;
-        }
-      
-        .img2 {
-          animation: fadeIn 3s 1.5s;
-        }
-      
-        @keyframes fadeInOut {
-          0% { opacity: 0; }
-          25% { opacity: 1; }
-          75% { opacity: 1; }
-          100% { opacity: 0; }
-        }
-      
-        @keyframes fadeIn {
-          0% { opacity: 0; }
-          100% { opacity: 1; }
-        }
-      
-        @keyframes hideOverlay {
-          to {
-            display: none;
-            visibility: hidden;
-          }
-        }
-      
-        body {
-            margin: 0;
-            padding: 0;
-            background: #d0f0f0 url('"images/LogoVirya1.PNG"') no-repeat center center fixed;
-            background-size: 200px; /* o 10% si querés relativo al body */
-            font-family: Arial, sans-serif;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-          }
-          
-      
-        .content {
-          position: relative;
-          z-index: 1;
-          padding: 50px;
-          color: white;
-          text-align: center;
-        }
-      </style>
-         
-    </style>
-  </head>
-
-  <div id="popup">
-    <div id="popup-content">
-      <button id="close-popup">&times;</button>
-      <img
-        src="Images/IMG_9139.PNG"
-        alt="Horarios de Yoga"
-        style="max-width: 100%; height: auto"
-      />
-    </div>
+<div id="popup">
+  <div id="popup-content">
+    <button id="close-popup">&times;</button>
+    <img src="Images/IMG_9139.PNG" alt="Horarios de Yoga" style="max-width: 100%; height: auto" />
   </div>
-  <body>
-    <header>
-      <div class="logo-container">
-        <img
-          src="Images/IMG_9452.PNG"
-          alt="Virya Yoga Studio"
-          class="logo-image"
-        />
-      </div>
-      <nav>
-        <a href="#">Inicio</a>
-        <a href="#">Nosotros</a>
-        <a href="#">Clases</a>
-        <a href="#">Contacto</a>
-      </nav>
-      <div class="menu-btn" id="menu-btn">
-        <div class="menu-btn__burger"></div>
-      </div>
-    </header>
-    <div class="image-transition">
-        <img src="images/LogoVirya1.PNG" class="img2" />
-        <img src="images/LogoVirya2.PNG" class="img1" />
-    </div>    
-    <main>
-    </main>
-    <footer>© 2025 Virya Yoga Studio.</footer>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-      $(document).ready(function () {
-        $("#menu-btn").click(function () {
-          $(this).toggleClass("open");
-          $("header").toggleClass("open");
-        });
-      });
-      $(document).ready(function () {
-        $("#popup").fadeIn();
-        $("#close-popup").click(function () {
-          $("#popup").fadeOut();
-        });
-      });
-    </script>
-  </body>
+</div>
+
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="Images/IMG_9452.PNG" alt="Virya Yoga Studio" class="logo-image" />
+    </div>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Nosotros</a>
+      <a href="#">Clases</a>
+      <a href="#">Contacto</a>
+    </nav>
+    <div class="menu-btn" id="menu-btn">
+      <div class="menu-btn__burger"></div>
+    </div>
+  </header>
+  <div class="image-transition">
+    <img src="images/LogoVirya1.PNG" class="img2" />
+    <img src="images/LogoVirya2.PNG" class="img1" />
+  </div>
+  <main>
+  </main>
+  <footer>© 2025 Virya Yoga Studio.</footer>
+  <script src="scripts.js"></script>
+</body>
+
 </html>
