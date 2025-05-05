@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yoga Zen</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .navbar {
+      border-radius: 1rem;
+      margin: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .logo-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      transform: translateY(-100px);
+      opacity: 0;
+      transition: all 1s ease;
+    }
+
+    .logo-visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Burger animada */
+    .hamburger {
+      cursor: pointer;
+      width: 30px;
+      height: 22px;
+      position: relative;
+      z-index: 1001;
+      display: inline-block;
+      margin-left: auto;
+    }
+
+    .hamburger span {
+      background: white;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      left: 0;
+      transition: 0.4s;
+    }
+
+    .hamburger span:nth-child(1) { top: 0; }
+    .hamburger span:nth-child(2) { top: 9px; }
+    .hamburger span:nth-child(3) { top: 18px; }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg);
+      top: 9px;
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg);
+      top: 9px;
+    }
+
+    @media (min-width: 992px) {
+      .hamburger {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="https://via.placeholder.com/50" alt="Logo" class="logo-img me-2" id="logoYoga" />
+        Yoga Zen
+      </a>
+
+      <!-- Botón hamburguesa animado -->
+      <div class="hamburger" id="hamburgerBtn">
+        <span></span><span></span><span></span>
+      </div>
+
+      <div class="collapse navbar-collapse" id="menuYoga">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Clases</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Profesores</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENIDO -->
+  <div class="container mt-5 text-center">
+    <h1>Bienvenido a Yoga Zen</h1>
+    <p class="lead">Armonía, paz y movimiento.</p>
+
+    <!-- Imagen con animación -->
+    <img src="https://via.placeholder.com/600x300" class="img-fluid rounded fade-in mt-4" id="imgYoga" alt="Yoga" />
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Logo animado al cargar
+    window.addEventListener('load', () => {
+      document.getElementById('logoYoga').classList.add('logo-visible');
+    });
+
+    // Imagen se muestra animada cuando entra en vista
+    const img = document.getElementById('imgYoga');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          img.classList.add('visible');
+        }
+      });
+    });
+    observer.observe(img);
+
+    // Burger animada
+    const burger = document.getElementById('hamburgerBtn');
+    const menu = document.getElementById('menuYoga');
+
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      menu.classList.toggle('show');
+    });
+  </script>
+</body>
+</html>
