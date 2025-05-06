@@ -11,18 +11,18 @@
 
   <style>
     :root {
-      --principal: #111212;
-      --claro: #f3f2f1;
-      --acento1: #fbf9f7;
-      --acento2: #111212;
-      --acento3: #111212;
-      --amarillo: #faf9f5;
+      --principal: #4A4A4A;   /* Gris neutro */
+      --claro: #FFFFFF;       /* Blanco puro */
+      --acento1: #F5EEDA;     /* Arena cálido */
+      --acento2: #D9CAB3;     /* Beige suave */
+      --acento3: #B4D2BA;     /* Verde claro armonioso */
+      --amarillo: #FCEEB5;    /* Amarillo suave */
     }
 
     body {
-      background-color: #ffffff;
+      background-color: var(--claro);
       font-family: 'Cormorant Garamond', serif;
-      color: #f6f1f1;
+      color: var(--principal);
     }
 
     .navbar {
@@ -40,6 +40,7 @@
     .navbar-nav .nav-link {
       color: var(--principal);
       font-weight: 500;
+      transition: color 0.3s ease;
     }
 
     .nav-link.active,
@@ -127,9 +128,9 @@
     }
 
     footer {
-      background-color: var(--claro);
+      background-color: var(--acento1);
       text-align: center;
-      color: #444;
+      color: var(--principal);
       font-size: 0.9rem;
       padding: 1rem 0;
       margin-top: 4rem;
@@ -141,7 +142,16 @@
       right: 35px;
       width: 60px;
       height: 60px;
-  
+      background-color: var(--acento3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+    }
+
     .whatsapp-custom:hover {
       transform: scale(1.1);
     }
@@ -149,7 +159,6 @@
     .whatsapp-custom img {
       width: 28px;
       height: 28px;
-
     }
   </style>
 </head>
@@ -224,11 +233,12 @@
       menu.classList.toggle('show');
     });
   </script>
-  <!-- WhatsApp flotante con estilo adaptado -->
+
+  <!-- WhatsApp flotante -->
   <a href="https://wa.me/5491167885544?text=%20%C2%A1Hola!%20Me%20gustar%C3%ADa%20empezar%20mis%20clases%20en%20Virya%20Yoga%20Studio.%0AEstoy%20interesada%2Fo%20en%20(por%20favor%20marc%C3%A1%20o%20elimin%C3%A1%20lo%20que%20te%20interese)%3A%0A%0A-%20Yoga%20%0A-%20Reiki%20%0A-%20Masaje%20Tailand%C3%A9s%20%0A-%20Sesiones%20Personalizadas%0A%0A%C2%BFMe%20pas%C3%A1s%20m%C3%A1s%20info%3F%20%C2%A1Gracias!" 
-  class="whatsapp-custom" target="_blank" aria-label="WhatsApp">
- <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="90" height="90" />
-</a>
+     class="whatsapp-custom" target="_blank" aria-label="WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+  </a>
 
 </body>
 
