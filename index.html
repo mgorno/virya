@@ -135,30 +135,32 @@
       margin-top: 4rem;
     }
 
-    .whatsapp-button {
+    .whatsapp-custom {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      width: 55px;
-      height: 55px;
-      background-color: #25D366;
+      width: 60px;
+      height: 60px;
+      background-color: #63A7B0;
+      /* Color del kit de marca */
       border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-      z-index: 999;
+      z-index: 1000;
       transition: transform 0.3s ease;
     }
 
-    .whatsapp-button img {
-      width: 30px;
-      height: 30px;
-      filter: brightness(0) invert(1);
+    .whatsapp-custom:hover {
+      transform: scale(1.1);
     }
 
-    .whatsapp-button:hover {
-      transform: scale(1.1);
+    .whatsapp-custom img {
+      width: 28px;
+      height: 28px;
+      filter: brightness(0) invert(1);
+      /* blanco sobre color marca */
     }
   </style>
 </head>
@@ -233,11 +235,12 @@
       menu.classList.toggle('show');
     });
   </script>
-  <!-- WhatsApp flotante -->
+  <!-- WhatsApp flotante con estilo adaptado -->
   <a href="https://wa.me/5491123456789?text=¡Hola!%20Quiero%20más%20info%20sobre%20Virya%20Yoga%20Studio"
-    class="whatsapp-button" target="_blank" aria-label="Enviar mensaje por WhatsApp">
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+    class="whatsapp-custom" target="_blank" aria-label="WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
   </a>
+
 
 
 </body>
