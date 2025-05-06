@@ -94,45 +94,30 @@
     }
 
     .fade-in-up {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 1.2s ease;
-}
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1.2s ease, transform 1.2s ease;
+    }
 
-.fade-in-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-/* Efecto entrada suave vertical */
-.fade-in-up {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1.2s ease, transform 1.2s ease;
-}
+    .fade-in-left {
+      opacity: 0;
+      transform: translateX(-50px) scale(0.95);
+      filter: blur(4px);
+      transition: all 1.5s ease;
+    }
 
-/* Efecto entrada desde la izquierda con desenfoque */
-.fade-in-left {
-  opacity: 0;
-  transform: translateX(-50px) scale(0.95);
-  filter: blur(4px);
-  transition: all 1.5s ease;
-}
+    .fade-in-up.visible,
+    .fade-in-left.visible {
+      opacity: 1;
+      transform: translateX(0) translateY(0) scale(1);
+      filter: blur(0);
+    }
 
-.fade-in-up.visible,
-.fade-in-left.visible {
-  opacity: 1;
-  transform: translateX(0) translateY(0) scale(1);
-  filter: blur(0);
-}
-
-/* Imagen más pequeña y centrada */
-.logo-central {
-  max-width: 200px;
-  margin: 0 auto;
-  display: block;
-}
-
-
+    .logo-central {
+      max-width: 200px;
+      margin: 0 auto;
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -145,7 +130,6 @@
         <img src="Images/IMG_9452.PNG" alt="Texto Virya Yoga Studio" style="height:40px;" />
       </a>
 
-      <!-- Botón hamburguesa animado -->
       <div class="hamburger" id="hamburgerBtn">
         <span></span><span></span><span></span>
       </div>
@@ -167,40 +151,41 @@
 
   <!-- CONTENIDO -->
   <div class="container mt-5 text-center">
-    <!-- Título más pequeño -->
     <h2 class="fw-light fade-in-up" style="font-family: 'Cormorant Garamond', serif; color: #444;">
       Bienvenido/a a <span style="color:#5e5e5e;">Virya Yoga Studio</span>
     </h2>
-  
-    <!-- Imagen animada -->
-    <img src="Images/LogoVirya1.PNG" class="fade-in-left mt-4 img-fluid logo-central" alt="Yoga" />
-  
-    <!-- Texto final con efecto -->
+
+    <img id="imgYoga" src="Images/LogoVirya1.PNG" class="fade-in-left mt-4 img-fluid logo-central" alt="Yoga" />
+
     <p class="lead fade-in-up mt-4" style="font-style: italic; color: #777;">
       Bienestar holístico. Volvé a vos.
     </p>
   </div>
-  
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Logo animado al cargar
+    // Animación del logo (si existe)
     window.addEventListener('load', () => {
-      document.getElementById('logoYoga').classList.add('logo-visible');
+      const logo = document.getElementById('logoYoga');
+      if (logo) logo.classList.add('logo-visible');
     });
 
     // Imagen se muestra animada cuando entra en vista
-    const img = document.getElementById('imgYoga');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          img.classList.add('visible');
-        }
-      });
-    });
-    observer.observe(img);
+    window.addEventListener('DOMContentLoaded', () => {
+      const fadeElements = document.querySelectorAll('.fade-in-up, .fade-in-left');
 
-    // Burger animada
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      });
+
+      fadeElements.forEach(el => observer.observe(el));
+    });
+
+    // Burger menu
     const burger = document.getElementById('hamburgerBtn');
     const menu = document.getElementById('menuYoga');
 
@@ -208,32 +193,6 @@
       burger.classList.toggle('active');
       menu.classList.toggle('show');
     });
-
-    
-  const content = document.querySelector('.fade-in-up');
-  const observer2 = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        content.classList.add('visible');
-      }
-    });
-  });
-
-  window.addEventListener('DOMContentLoaded', () => {
-    const fadeElements = document.querySelectorAll('.fade-in-up, .fade-in-left');
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    });
-
-    fadeElements.forEach(el => observer.observe(el));
-  });
-
-
   </script>
 </body>
 </html>
