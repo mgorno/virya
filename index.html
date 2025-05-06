@@ -217,7 +217,7 @@
       fadeElements.forEach(el => observer.observe(el));
     });
 
-    const burger = document.getElementByIdi('hamburgerBtn');
+    const burger = document.getElementById('hamburgerBtn');
     const menu = document.getElementById('menuYoga');
     burger.addEventListener('click', () => {
       burger.classList.toggle('active');
