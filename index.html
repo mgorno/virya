@@ -158,55 +158,56 @@
       </div>
     </div>
   </nav>
+  <main>
+    <!-- CONTENIDO -->
+    <div class="container mt-5 text-center">
+      <h2 class="fw-light fade-in-up" style="font-family: 'Cormorant Garamond', serif; color: #444;">
+        Bienvenido/a a <span style="color:#5e5e5e;">Virya Yoga Studio</span>
+      </h2>
 
-  <!-- CONTENIDO -->
-  <div class="container mt-5 text-center">
-    <h2 class="fw-light fade-in-up" style="font-family: 'Cormorant Garamond', serif; color: #444;">
-      Bienvenido/a a <span style="color:#5e5e5e;">Virya Yoga Studio</span>
-    </h2>
+      <img id="imgYoga" src="Images/LogoVirya1.PNG" class="fade-in-left mt-4 img-fluid logo-central" alt="Yoga" />
 
-    <img id="imgYoga" src="Images/LogoVirya1.PNG" class="fade-in-left mt-4 img-fluid logo-central" alt="Yoga" />
+      <p class="lead fade-in-up mt-4" style="font-style: italic; color: #777;">
+        Volvé a vos.
+      </p>
+    </div>
 
-    <p class="lead fade-in-up mt-4" style="font-style: italic; color: #777;">
-      Volvé a vos.
-    </p>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // Animación del logo (si existe)
-    window.addEventListener('load', () => {
-      const logo = document.getElementById('logoYoga');
-      if (logo) logo.classList.add('logo-visible');
-    });
-
-    // Imagen se muestra animada cuando entra en vista
-    window.addEventListener('DOMContentLoaded', () => {
-      const fadeElements = document.querySelectorAll('.fade-in-up, .fade-in-left');
-
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Animación del logo (si existe)
+      window.addEventListener('load', () => {
+        const logo = document.getElementById('logoYoga');
+        if (logo) logo.classList.add('logo-visible');
       });
 
-      fadeElements.forEach(el => observer.observe(el));
-    });
+      // Imagen se muestra animada cuando entra en vista
+      window.addEventListener('DOMContentLoaded', () => {
+        const fadeElements = document.querySelectorAll('.fade-in-up, .fade-in-left');
 
-    // Burger menu
-    const burger = document.getElementById('hamburgerBtn');
-    const menu = document.getElementById('menuYoga');
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        });
 
-    burger.addEventListener('click', () => {
-      burger.classList.toggle('active');
-      menu.classList.toggle('show');
-    });
-  </script>
-  <main>
-  </main>
-  <footer>© 2025 Virya Yoga Studio.</footer>
+        fadeElements.forEach(el => observer.observe(el));
+      });
+
+      // Burger menu
+      const burger = document.getElementById('hamburgerBtn');
+      const menu = document.getElementById('menuYoga');
+
+      burger.addEventListener('click', () => {
+        burger.classList.toggle('active');
+        menu.classList.toggle('show');
+      });
+    </script>
+
+    <footer class="text-center py-4 mt-5" style="background-color: #f8f9fa; color: #555; font-size: 0.9rem;">
+      © 2025 Virya Yoga Studio.
+    </footer>
 </body>
 
 </html>
