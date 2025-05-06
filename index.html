@@ -92,6 +92,18 @@
         display: none;
       }
     }
+
+    .fade-in-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1.2s ease;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
   </style>
 </head>
 <body>
@@ -125,10 +137,13 @@
   </nav>
 
   <!-- CONTENIDO -->
-  <div class="container mt-5 text-center">
-    <h1>Bienvenido a Virya Yoga Studio</h1>
-    <p class="lead">Bienestar Holistico </p>
-
+  <div class="container mt-5 text-center fade-in-up">
+    <h1 class="display-4 fw-bold" style="font-family: 'Cormorant Garamond', serif;">
+      Bienvenido/a a <span style="color:#5e5e5e;">Virya Yoga Studio</span>
+    </h1>
+    <p class="lead" style="font-style: italic; color: #777;">
+      Bienestar holístico. Volvé a vos.
+    </p>
     <!-- Imagen con animación mejorada -->
     <img src="Images/LogoVirya1.PNG" class="fade-in-img mt-4" id="imgYoga" alt="Yoga" />
   </div>
@@ -159,6 +174,19 @@
       burger.classList.toggle('active');
       menu.classList.toggle('show');
     });
+
+    
+  const content = document.querySelector('.fade-in-up');
+  const observer2 = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        content.classList.add('visible');
+      }
+    });
+  });
+  observer2.observe(content);
+
+
   </script>
 </body>
 </html>
