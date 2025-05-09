@@ -1,0 +1,157 @@
+    :root {
+      --principal: #4A4A4A;
+      /* Gris neutro */
+      --claro: #FFFFFF;
+      /* Blanco puro */
+      --acento1: #F5EEDA;
+      /* Arena cálido */
+      --acento2: #D9CAB3;
+      /* Beige suave */
+      --acento3: #B4D2BA;
+      /* Verde claro armonioso */
+      --amarillo: #FCEEB5;
+      /* Amarillo suave */
+    }
+
+    body {
+      background-color: var(--claro);
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--principal);
+    }
+
+    .navbar {
+      background-color: var(--claro);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin: 10px;
+      border-radius: 1rem;
+    }
+
+    .navbar-brand img {
+      height: 50px;
+    }
+
+    .navbar-nav .nav-link {
+      color: var(--principal);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link.active,
+    .nav-link:hover {
+      color: var(--acento3);
+    }
+
+    .hamburger {
+      cursor: pointer;
+      width: 30px;
+      height: 22px;
+      position: relative;
+      z-index: 1001;
+      display: inline-block;
+      margin-left: auto;
+    }
+
+    .hamburger span {
+      background: #333;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      left: 0;
+      transition: 0.4s;
+    }
+
+    .hamburger span:nth-child(1) {
+      top: 0;
+    }
+
+    .hamburger span:nth-child(2) {
+      top: 9px;
+    }
+
+    .hamburger span:nth-child(3) {
+      top: 18px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg);
+      top: 9px;
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg);
+      top: 9px;
+    }
+
+    @media (min-width: 992px) {
+      .hamburger {
+        display: none;
+      }
+    }
+
+    .fade-in-up,
+    .fade-in-left {
+      opacity: 0;
+      transition: all 1.5s ease;
+    }
+
+    .fade-in-up {
+      transform: translateY(30px);
+    }
+
+    .fade-in-left {
+      transform: translateX(-50px) scale(0.95);
+      filter: blur(4px);
+    }
+
+    .fade-in-up.visible,
+    .fade-in-left.visible {
+      opacity: 1;
+      transform: translateX(0) translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    .logo-central {
+      max-width: 200px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    footer {
+      background-color: var(--acento1);
+      text-align: center;
+      color: var(--principal);
+      font-size: 0.9rem;
+      padding: 1rem 0;
+      margin-top: 4rem;
+    }
+
+    .whatsapp-custom {
+      position: fixed;
+      bottom: 80px;
+      right: 35px;
+      width: 60px;
+      height: 60px;
+      background-color: var(--acento3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+    }
+
+    .whatsapp-custom:hover {
+      transform: scale(1.1);
+    }
+
+    .whatsapp-custom img {
+      width: 28px;
+      height: 28px;
+    }
+  
