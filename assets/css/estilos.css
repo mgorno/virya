@@ -28,7 +28,7 @@
     }
 
     .navbar-brand img {
-      height: 30px;
+      height: 40px;
     }
 
     .navbar-nav .nav-link {
@@ -119,6 +119,25 @@
       max-width: 200px;
       margin: 0 auto;
       display: block;
+    }
+      .imagen-con-logo {
+      position: relative;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .imagen-con-logo img.fondo {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .imagen-con-logo img.logo {
+      position: absolute;
+      top: 0%;
+      left: 20%; 
+      transform: translateX(-50%);
+      width: 40%;
     }
 
     footer {
