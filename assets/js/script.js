@@ -16,3 +16,11 @@
       burger.classList.toggle('active');
       menu.classList.toggle('show');
     });
+
+
+  function mostrarHorarios() {
+    const seccionHorarios = document.getElementById("horarios");
+    seccionHorarios.style.display = "block";
+    seccionHorarios.scrollIntoView({ behavior: "smooth" });
+  }
+
