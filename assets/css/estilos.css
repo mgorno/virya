@@ -194,12 +194,22 @@ footer {
 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-.logo-transicion {
+/* .logo-transicion {
  width: 120px; 
   transition: transform 0.8s ease, opacity 0.8s ease;
   opacity: 0;
   transform: scale(0.8);
-}
+} */
+
+.logo-transicion {
+  width: 120px; 
+  border-radius: 50%; 
+  object-fit: cover;
+  border: 3px solid var(--acento3); 
+  background-color: white;
+  padding: 5px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+
 
 .fade-in-logo {
   animation: fadeScaleIn 1s forwards;
