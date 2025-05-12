@@ -13,10 +13,6 @@
   /* Amarillo suave */
 }
 
-#horarios {
-  display: none;
-}
-
 
 body {
   background-color: var(--claro);
