@@ -18,19 +18,27 @@ burger.addEventListener('click', () => {
 });
 
 function mostrarSeccion(id) {
-  const secciones = document.querySelectorAll('.seccion');
-  secciones.forEach(sec => sec.classList.add('d-none'));
+  // Oculta todas las secciones
+  document.querySelectorAll('.seccion').forEach(seccion => {
+    seccion.classList.add('d-none');
+  });
 
-  const target = document.getElementById(id);
-  if (target) {
-    target.classList.remove('d-none');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Muestra la sección seleccionada
+  const seccionActiva = document.getElementById(id);
+  if (seccionActiva) {
+    seccionActiva.classList.remove('d-none');
   }
 
+  // Cierra menú en vista móvil si está abierto
   const menu = document.getElementById('menuYoga');
-  const burger = document.getElementById('hamburgerBtn');
   if (menu.classList.contains('show')) {
     menu.classList.remove('show');
-    burger.classList.remove('active');
+  }
+
+  // Si usás botón hamburguesa personalizado
+  const hamburger = document.getElementById('hamburgerBtn');
+  if (hamburger) {
+    hamburger.classList.remove('open');
   }
 }
+
