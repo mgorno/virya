@@ -24,3 +24,8 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+function mostrarInicio() {
+  document.getElementById('contenidoPrincipal').classList.remove('d-none');
+  document.getElementById('horarios').classList.add('d-none');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
