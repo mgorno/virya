@@ -18,9 +18,9 @@
     });
 
 
-  function mostrarHorarios() {
-    const seccionHorarios = document.getElementById("horarios");
-    seccionHorarios.style.display = "block";
-    seccionHorarios.scrollIntoView({ behavior: "smooth" });
+ function mostrarHorarios() {
+    document.getElementById('contenidoPrincipal').classList.add('d-none');
+    document.getElementById('horarios').classList.remove('d-none');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
