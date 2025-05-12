@@ -193,11 +193,3 @@ footer {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   /* Sombra opcional */
 }
-
-.seccion {
-  display: none;
-}
-
-.seccion.visible {
-  display: block;
-}

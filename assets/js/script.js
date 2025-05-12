@@ -19,15 +19,14 @@ burger.addEventListener('click', () => {
 
 function mostrarSeccion(id) {
   const secciones = document.querySelectorAll('.seccion');
-  secciones.forEach(sec => sec.classList.remove('visible'));
+  secciones.forEach(sec => sec.classList.add('d-none'));
 
   const target = document.getElementById(id);
   if (target) {
-    target.classList.add('visible');
+    target.classList.remove('d-none');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // Cerrar menú hamburguesa si está abierto
   const menu = document.getElementById('menuYoga');
   const burger = document.getElementById('hamburgerBtn');
   if (menu.classList.contains('show')) {
