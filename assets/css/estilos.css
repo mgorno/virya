@@ -195,7 +195,7 @@ footer {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 .logo-transicion {
- width: 180px; 
+ width: 120px; 
   transition: transform 0.8s ease, opacity 0.8s ease;
   opacity: 0;
   transform: scale(0.8);
