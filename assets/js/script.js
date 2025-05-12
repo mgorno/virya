@@ -18,14 +18,12 @@
     });
 
 
- function mostrarHorarios() {
-    document.getElementById('contenidoPrincipal').classList.add('d-none');
-    document.getElementById('horarios').classList.remove('d-none');
+function mostrarSeccion(id) {
+  const secciones = document.querySelectorAll('.seccion');
+  secciones.forEach(sec => sec.classList.remove('visible'));
+
+  const target = document.getElementById(id);
+  if (target) {
+    target.classList.add('visible');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-
-function mostrarInicio() {
-  document.getElementById('contenidoPrincipal').classList.remove('d-none');
-  document.getElementById('horarios').classList.add('d-none');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}

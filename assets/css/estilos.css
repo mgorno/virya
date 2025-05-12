@@ -183,14 +183,21 @@ footer {
 .whatsapp-custom img {
   width: 28px;
   height: 28px;
+}
 
-  #carruselVirya .carousel-inner img {
-    width: 100%;
-    /* Asegura que las imágenes ocupen todo el ancho del carrusel */
-    border-radius: 15px;
-    /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* Sombra opcional */
-  }
+#carruselVirya .carousel-inner img {
+  width: 100%;
+  /* Asegura que las imágenes ocupen todo el ancho del carrusel */
+  border-radius: 15px;
+  /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Sombra opcional */
+}
 
+.seccion {
+  display: none;
+}
+
+.seccion.visible {
+  display: block;
 }

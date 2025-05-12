@@ -45,56 +45,59 @@
   </nav>
 
   <!-- CONTENIDO -->
-  <main id="contenidoPrincipal">
-    <div class="container mt-5 text-center">
-      <h2 class="fw-light fade-in-up" style="color: var(--principal);">
-        Bienvenido/a a <span style="color: var(--acento3);">Virya Yoga Studio</span>
-      </h2>
+  <main>
+    <section id="inicio" class="seccion visible">
+      <div class="container mt-5 text-center">
+        <h2 class="fw-light fade-in-up" style="color: var(--principal);">
+          Bienvenido/a a <span style="color: var(--acento3);">Virya Yoga Studio</span>
+        </h2>
 
-      <!-- Imagen con logo encima -->
-      <!-- <img src="Images/LogoVirya1.PNG" class="logo" alt="Logo Yoga"> -->
+        <!-- Imagen con logo encima -->
+        <!-- <img src="Images/LogoVirya1.PNG" class="logo" alt="Logo Yoga"> -->
 
 
-      <div id="carruselVirya" class="carousel slide imagen-con-logo" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carruselVirya" data-bs-slide-to="0" class="active" aria-current="true"
-            aria-label="Imagen 1"></button>
-          <button type="button" data-bs-target="#carruselVirya" data-bs-slide-to="1" aria-label="Imagen 2"></button>
-          <button type="button" data-bs-target="#carruselVirya" data-bs-slide-to="2" aria-label="Imagen 3"></button>
-          <button type="button" data-bs-target="#carruselVirya" data-bs-slide-to="3" aria-label="Imagen 4"></button>
+        <div id="carruselVirya" class="carousel slide imagen-con-logo" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carruselVirya" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Imagen 1"></button>
+            <button type="button" data-bs-target="#carruselVirya" data-bs-slide-to="1" aria-label="Imagen 2"></button>
+            <button type="button" data-bs-target="#carruselVirya" data-bs-slide-to="2" aria-label="Imagen 3"></button>
+            <button type="button" data-bs-target="#carruselVirya" data-bs-slide-to="3" aria-label="Imagen 4"></button>
+          </div>
+
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="assets/img/Inicio/Y 23.jpg" class="d-block w-100 imagen-redondeada" alt="Espacio Virya 1">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/img/Inicio/VIRYA 198.jpg" class="d-block w-100 imagen-redondeada" alt="Espacio Virya 2">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/img/Inicio/VIRYA 239.jpg" class="d-block w-100 imagen-redondeada" alt="Espacio Virya 3">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/img/Inicio/VIRYA 213.jpg" class="d-block w-100 imagen-redondeada" alt="Espacio Virya 4">
+            </div>
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#carruselVirya" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carruselVirya" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+          </button>
         </div>
 
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="assets/img/Inicio/Y 23.jpg" class="d-block w-100 imagen-redondeada" alt="Espacio Virya 1">
-          </div>
-          <div class="carousel-item">
-            <img src="assets/img/Inicio/VIRYA 198.jpg" class="d-block w-100 imagen-redondeada" alt="Espacio Virya 2">
-          </div>
-          <div class="carousel-item">
-            <img src="assets/img/Inicio/VIRYA 239.jpg" class="d-block w-100 imagen-redondeada" alt="Espacio Virya 3">
-          </div>
-          <div class="carousel-item">
-            <img src="assets/img/Inicio/VIRYA 213.jpg" class="d-block w-100 imagen-redondeada" alt="Espacio Virya 4">
-          </div>
-        </div>
 
-        <button class="carousel-control-prev" type="button" data-bs-target="#carruselVirya" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Anterior</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carruselVirya" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Siguiente</span>
-        </button>
+
+        <p class="lead fade-in-up mt-4" style="font-style: italic; color: var(--acento2);">
+          Volvé a vos.
+        </p>
       </div>
 
-
-
-      <p class="lead fade-in-up mt-4" style="font-style: italic; color: var(--acento2);">
-        Volvé a vos.
-      </p>
-    </div>
+    </section>
     <section id="horarios" class="d-none">
       <h3 class="mb-4" style="color: var(--principal);">Nuestros Horarios</h3>
       <img src="assets/img/Horario/horarios.jpeg" alt="Horarios de clases" class="d-block w-100 imagen-redondeada" />
