@@ -25,6 +25,17 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.imagen-horarios {
+  max-width: 100%;
+  width: 800px; /* ajustá según necesites */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
 /* .navbar {
   background-color: var(--claro);
   backdrop-filter: blur(10px);
