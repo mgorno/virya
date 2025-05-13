@@ -229,8 +229,6 @@ footer {
 /* ...otros estilos que ya tenés arriba... */
 
 @media (max-width: 768px) {
-  
-}
   .navbar {
     width: 90%;
     margin: 10px auto;
@@ -239,9 +237,7 @@ footer {
   backdrop-filter: blur(10px);               /* efecto de desenfoque */
   -webkit-backdrop-filter: blur(10px);       /* soporte Safari */
   transition: background-color 0.3s ease;
-   
   }
-
   .navbar .container {
     padding-left: 1rem;
     padding-right: 1rem;

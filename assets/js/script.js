@@ -16,6 +16,18 @@ burger.addEventListener('click', () => {
   burger.classList.toggle('active');
   menu.classList.toggle('show');
 });
+function marcarItemActivo(id) {
+  document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+    link.classList.remove('active');
+  });
+
+  const links = document.querySelectorAll('.navbar-nav .nav-link');
+  links.forEach(link => {
+    if (link.getAttribute('onclick')?.includes(id)) {
+      link.classList.add('active');
+    }
+  });
+}
 
 function mostrarSeccion(id) {
   // Oculta todas las secciones
@@ -29,16 +41,14 @@ function mostrarSeccion(id) {
     seccionActiva.classList.remove('d-none');
   }
 
-  // Cierra menú en vista móvil si está abierto
-  const menu = document.getElementById('menuYoga');
+  // Actualiza el item activo del menú
+  marcarItemActivo(id);
+
+  // Cierra el menú en móviles
   if (menu.classList.contains('show')) {
     menu.classList.remove('show');
-  }
-
-  // Si usás botón hamburguesa personalizado
-  const hamburger = document.getElementById('hamburgerBtn');
-  if (hamburger) {
-    hamburger.classList.remove('open');
+    burger.classList.remove('active');
   }
 }
+
 
