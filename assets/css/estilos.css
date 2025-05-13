@@ -37,9 +37,10 @@ body {
 
 
 .navbar {
-  background-color: rgba(255, 255, 255, 0.2); 
-  backdrop-filter: blur(10px);               
-  -webkit-backdrop-filter: blur(10px);       /* soporte Safari */
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  /* soporte Safari */
   transition: background-color 0.3s ease;
 }
 
@@ -166,6 +167,21 @@ footer {
   margin-top: 4rem;
 }
 
+footer a {
+  color: inherit;
+  /* Hereda el color del texto del contenedor padre */
+  text-decoration: none;
+  /* Opcional: quita el subrayado */
+}
+
+footer a:hover {
+  color: inherit;
+  /* Mantiene el color en hover, o podés definir otro si querés */
+  text-decoration: underline;
+  /* Opcional: subrayado al pasar el mouse */
+}
+
+
 .whatsapp-custom {
   position: fixed;
   bottom: 80px;
@@ -193,7 +209,7 @@ footer {
 
 #carruselVirya .carousel-inner img {
   width: 100%;
-  
+
   border-radius: 15px;
 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -201,15 +217,16 @@ footer {
 
 
 .logo-transicion {
-  width: 120px; 
+  width: 120px;
   transition: transform 0.8s ease, opacity 0.8s ease;
   opacity: 0;
   transform: scale(0.8);
-  border-radius: 50%; 
+  border-radius: 50%;
   object-fit: cover;
-  padding: 5px; 
+  padding: 5px;
 
 }
+
 .fade-in-logo {
   animation: fadeScaleIn 1s forwards;
   animation-delay: 0.3s;
@@ -220,21 +237,24 @@ footer {
     opacity: 0;
     transform: scale(0.8) rotate(-5deg);
   }
+
   to {
     opacity: 1;
     transform: scale(1) rotate(0deg);
   }
 }
+
 @media (max-width: 768px) {
   .navbar {
     width: 90%;
     margin: 10px auto;
     border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.2); 
-  backdrop-filter: blur(10px);              
-  -webkit-backdrop-filter: blur(10px);      
-  transition: background-color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: background-color 0.3s ease;
   }
+
   .navbar .container {
     padding-left: 1rem;
     padding-right: 1rem;
