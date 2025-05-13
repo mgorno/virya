@@ -27,7 +27,7 @@ body {
 
 .imagen-horarios {
   max-width: 100%;
-  width: 800px; /* ajustá según necesites */
+  width: 700px;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -36,16 +36,9 @@ body {
 }
 
 
-/* .navbar {
-  background-color: var(--claro);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-  border-radius: 1rem;
-} */
 .navbar {
-  background-color: rgba(255, 255, 255, 0.2); /* fondo blanco semi-transparente */
-  backdrop-filter: blur(10px);               /* efecto de desenfoque */
+  background-color: rgba(255, 255, 255, 0.2); 
+  backdrop-filter: blur(10px);               
   -webkit-backdrop-filter: blur(10px);       /* soporte Safari */
   transition: background-color 0.3s ease;
 }
@@ -205,12 +198,7 @@ footer {
 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-/* .logo-transicion {
- width: 120px; 
-  transition: transform 0.8s ease, opacity 0.8s ease;
-  opacity: 0;
-  transform: scale(0.8);
-} */
+
 
 .logo-transicion {
   width: 120px; 
@@ -237,16 +225,14 @@ footer {
     transform: scale(1) rotate(0deg);
   }
 }
-/* ...otros estilos que ya tenés arriba... */
-
 @media (max-width: 768px) {
   .navbar {
     width: 90%;
     margin: 10px auto;
     border-radius: 15px;
-    background-color: rgba(255, 255, 255, 0.2); /* fondo blanco semi-transparente */
-  backdrop-filter: blur(10px);               /* efecto de desenfoque */
-  -webkit-backdrop-filter: blur(10px);       /* soporte Safari */
+    background-color: rgba(255, 255, 255, 0.2); 
+  backdrop-filter: blur(10px);              
+  -webkit-backdrop-filter: blur(10px);      
   transition: background-color 0.3s ease;
   }
   .navbar .container {
