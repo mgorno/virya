@@ -22,6 +22,10 @@ body {
   user-select: none;        /* Evita selección de texto por accidente */
 }
 
+.copiable {
+  user-select: text;   
+  caret-color: auto;
+}
 
 .imagen-redondeada {
   border-radius: 15px;
