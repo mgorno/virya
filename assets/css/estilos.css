@@ -37,10 +37,11 @@ body {
 
 .boton-horarios {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  top: 15px;
+  left: 15px;
   z-index: 10;
 }
+
 
 .carrusel-con-boton {
   position: relative;
