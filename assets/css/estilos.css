@@ -17,7 +17,11 @@
 body {
   background-color: var(--claro);
   font-family: 'Cormorant Garamond', serif;
-  color: var(--principal);
+  color: var(--principal);body, html {
+  caret-color: transparent; /* Oculta el cursor titilante */
+  user-select: none;        /* Evita selección de texto por accidente */
+}
+
 }
 
 .imagen-redondeada {

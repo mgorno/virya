@@ -12,10 +12,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
 const burger = document.getElementById('hamburgerBtn');
 const menu = document.getElementById('menuYoga');
+
 burger.addEventListener('click', () => {
   burger.classList.toggle('active');
   menu.classList.toggle('show');
 });
+
 function marcarItemActivo(id) {
   document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
     link.classList.remove('active');
@@ -51,4 +53,9 @@ function mostrarSeccion(id) {
   }
 }
 
-
+// 🔒 Previene que el cursor titile en el body al hacer clic
+document.addEventListener('mousedown', () => {
+  if (document.activeElement && document.activeElement !== document.body) {
+    document.activeElement.blur();
+  }
+});
