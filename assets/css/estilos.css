@@ -27,13 +27,25 @@ body {
 
 .imagen-horarios {
   max-width: 100%;
-  width: 600px; 
+  width: 600px;
   height: auto;
   display: block;
-  margin: 30px auto 0 auto;
+  margin: 2rem auto 0 auto;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+.boton-horarios {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+}
+
+.carrusel-con-boton {
+  position: relative;
+}
+
 
 .navbar {
   background-color: rgba(255, 255, 255, 0.2);

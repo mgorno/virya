@@ -52,7 +52,7 @@
         </p>
         <!-- Imagen con logo encima -->
         <!-- <img src="Images/LogoVirya1.PNG" class="logo" alt="Logo Yoga"> -->
-        <div id="carruselVirya" class="carousel slide imagen-con-logo" data-bs-ride="carousel"
+        <div id="carruselVirya" class="carousel slide carrusel-con-boton imagen-con-logo" data-bs-ride="carousel"
           style="margin-top: 3rem;">
           <div class="carousel-indicators">
             <button type="button" data-bs-target="#carruselVirya" data-bs-slide-to="0" class="active"
@@ -83,6 +83,13 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Siguiente</span>
           </button>
+
+          <!-- Botón flotante dentro del carrusel -->
+          <div class="boton-horarios">
+            <a class="btn btn-outline-light btn-lg shadow" href="#horarios">
+              <i class="bi bi-calendar3 me-2"></i>Ver Horarios
+            </a>
+          </div>
         </div>
         <p class="lead fade-in-up mt-4" style="font-style: italic; color: var(--acento2);">
           Volvé a vos.
@@ -91,54 +98,55 @@
     </section>
     <section id="inicio" class="seccion">
       <div class="container mt-5 text-center">
-    <section id="horarios" class="seccion d-none">
-      <div class="container my-4">
-        <div class="row align-items-center">
-          <div class="col-md-8 text-start">
-           <h2 class="fw-light fade-in-up" style="color: var(--principal);">
-              Nuestra grilla de horarios
-            </h2>
-            <p class="lead" style="color: var(--acento3); font-style: italic;">
-              <!-- Encontrá el horario que mejor se adapta a vos -->
-            </p>
+        <section id="horarios" class="seccion d-none">
+          <div class="container my-4">
+            <div class="row align-items-center">
+              <div class="col-md-8 text-start">
+                <h2 class="fw-light fade-in-up" style="color: var(--principal);">
+                  Nuestra grilla de horarios
+                </h2>
+                <p class="lead" style="color: var(--acento3); font-style: italic;">
+                  <!-- Encontrá el horario que mejor se adapta a vos -->
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
+          <div>
+            <img src="assets/img/Horario/horarios.jpeg" alt="Horarios de clases" class="imagen-horarios" />
+          </div>
+        </section>
       </div>
-      <div>
-        <img src="assets/img/Horario/horarios.jpeg" alt="Horarios de clases" class="imagen-horarios" />
-      </div>
-    </section>
-     </div>
       </div>
   </main>
-<footer class="pt-4 pb-3 mt-5 position-relative" style="font-family: 'Cormorant Garamond', serif;">
-  <div class="container position-relative">
-    <!-- Logo alineado a la izquierda -->
-    <div style="position: absolute; left: 0; top: 0;">
-      <img src="assets/img/logo/LogoViryaCuerpoCompletoConFondoTransparente.png" alt="Logo Virya" class="img-fluid" style="max-height: 100px;">
-    </div>
+  <footer class="pt-4 pb-3 mt-5 position-relative" style="font-family: 'Cormorant Garamond', serif;">
+    <div class="container position-relative">
+      <!-- Logo alineado a la izquierda -->
+      <div style="position: absolute; left: 0; top: 0;">
+        <img src="assets/img/logo/LogoViryaCuerpoCompletoConFondoTransparente.png" alt="Logo Virya" class="img-fluid"
+          style="max-height: 100px;">
+      </div>
 
-    <!-- Texto centrado horizontalmente -->
-    <div class="text-center" style="max-width: 600px; margin: 0 auto;">
-      <p class="mb-1"><strong>Ecuador 1511, Recoleta</strong></p>
-      <p class="mb-1"><i class="bi bi-envelope-fill me-2"></i>studio.virya.yoga@gmail.com</p>
-      <p class="mb-1"><i class="bi bi-whatsapp me-2"></i>+54 9 11 6788 5544</p>
-      <p class="mb-0">
-        <a href="https://www.instagram.com/virya.yogastudio/" class="text-dark text-decoration-none">
-          <i class="bi bi-instagram me-2"></i>@virya.yogastudio
-        </a>
-      </p>
-    </div>
+      <!-- Texto centrado horizontalmente -->
+      <div class="text-center" style="max-width: 600px; margin: 0 auto;">
+        <p class="mb-1"><strong>Ecuador 1511, Recoleta</strong></p>
+        <p class="mb-1"><i class="bi bi-envelope-fill me-2"></i>studio.virya.yoga@gmail.com</p>
+        <p class="mb-1"><i class="bi bi-whatsapp me-2"></i>+54 9 11 6788 5544</p>
+        <p class="mb-0">
+          <a href="https://www.instagram.com/virya.yogastudio/" class="text-dark text-decoration-none">
+            <i class="bi bi-instagram me-2"></i>@virya.yogastudio
+          </a>
+        </p>
+      </div>
 
-    <hr class="my-4">
+      <hr class="my-4">
 
-    <div class="row">
-      <div class="col text-center small">
-        © 2025 Virya Yoga Studio. Todos los derechos reservados.
+      <div class="row">
+        <div class="col text-center small">
+          © 2025 Virya Yoga Studio. Todos los derechos reservados.
+        </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
 
 
